@@ -1,0 +1,41 @@
+.search-container {
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border-radius: 35px;
+  overflow: hidden;
+  width: 500px;
+}
+
+.mic {
+  display: flex;
+  align-items: center;
+  border-radius: 35px;
+  overflow: hidden;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 6px;
+  border: none;
+  outline: none;
+  background-color: #14293a;
+  color: #fff;
+  padding: 6px 15px;
+}
+
+.search-bar input::placeholder {
+  color: #fff;
+}
+
+.search-bar button {
+  padding: 6px 15px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #14293a;
+}

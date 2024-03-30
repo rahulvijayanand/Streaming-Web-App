@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.sidenav {
+  width: 250px;
+  transition: width 0.3s ease-in-out;
+  height: 100vh;
+  background-color: #001523;
+  padding-top: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.sidenavClosed {
+  composes: sidenav;
+  transition: width 0.3s ease-in-out;
+  width: 50px;
+}
+
+.linkText {
+  padding-left: 16px;
+  font-family: "Poppins";
+}
+
+.menuBtn {
+  align-self: center;
+  align-self: flex-start;
+  justify-self: flex-end;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding-left: 13px;
+  margin-bottom: 10px;
+}
+
+.maincontent {
+  margin-left: 250px;
+  transition: margin-left 0.3s ease-in-out;
+  flex: auto;
+  padding: 15px;
+}
+
+.sidenavClosed + .maincontent {
+  margin-left: 50px;
+}
+
+.logoutItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.menuItems {
+  margin-top: 25px;
+}
+
+.menuItems2 {
+  margin-top: 10px;
+}

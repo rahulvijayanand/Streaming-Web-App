@@ -4,8 +4,6 @@ import { navData } from "../lib/navData";
 import { useState, useEffect } from "react";
 import logo from "../assets/logo.png";
 import axios from "axios";
-import menu from "../assets/menu.png";
-import close from "../assets/close.png";
 import { FiMenu, FiX } from "react-icons/fi";
 
 export default function Sidenav() {

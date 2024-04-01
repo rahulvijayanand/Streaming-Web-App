@@ -3,7 +3,11 @@ import "./header.css";
 import Search from "./search";
 import logo from "../assets/logo.png";
 
-const Header = () => {
+const Header = ({ onSearch }) => {
+  const handleSearch = (searchQuery) => {
+    onSearch(searchQuery);
+  };
+
   return (
     <header className="header">
       <div className="logo">
@@ -13,9 +17,8 @@ const Header = () => {
           className="aspect-square h-[30px] w-[30px] mx-auto"
         />
       </div>
-
       <div className="icons">
-        <Search />
+        <Search onSearch={handleSearch} />
       </div>
     </header>
   );

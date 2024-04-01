@@ -15,7 +15,7 @@ const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
-export default function Home() {
+export default function Home({ searchQuery }) {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState("All");
@@ -30,14 +30,13 @@ export default function Home() {
         setVideos(response.data);
         setLoading(false);
 
-        // Extract unique categories from video data
         const uniqueCategories = [
           ...new Set(response.data.map((video) => video.category)),
         ];
-        setCategories(["All", ...uniqueCategories]); // Include "All" category option
+        setCategories(["All", ...uniqueCategories]);
       } catch (error) {
         console.error("Error fetching data:", error);
-        setLoading(false); // Set loading to false even on error
+        setLoading(false);
       }
     };
     fetchData();
@@ -53,6 +52,10 @@ export default function Home() {
       : videos.filter(
           (video) => video.category.toLowerCase() === activeFilter.toLowerCase()
         );
+
+  const searchedVideos = filteredVideos.filter((video) =>
+    video.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <div>
@@ -75,11 +78,11 @@ export default function Home() {
               size={50}
             />
           </div>
-        ) : filteredVideos.length === 0 ? (
+        ) : searchedVideos.length === 0 ? (
           <div className="text-white">No videos available</div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4">
-            {filteredVideos.map((video, index) => (
+            {searchedVideos.map((video, index) => (
               <Video
                 key={index}
                 thumbnail={video.thumbnail}

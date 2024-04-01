@@ -1,19 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "./search.css";
-import { FiSearch, FiMic, FiVideo, FiGrid, FiBell } from "react-icons/fi";
+import { FiMic, FiVideo, FiGrid, FiBell } from "react-icons/fi";
 import profile from "../assets/profile.jpg";
 
-const Search = () => {
+const Search = ({ onSearch }) => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleChange = (event) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+    onSearch(query);
+  };
+
   return (
     <div className="search-container">
       <button className="mic w-[40px] h-[40px] bg-[#d7cc99] justify-center mr-2">
         <FiMic color={"#001523"} size={17} />
       </button>
       <div className="search-bar bg-[#14293a] mr-9">
-        <input type="text" placeholder="Search..." />
-        <button>
-          <FiSearch color={"#fff"} />
-        </button>
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchQuery}
+          onChange={handleChange}
+        />
       </div>
       <div className="flex">
         <button className="pr-4">

@@ -34,12 +34,12 @@
   margin-bottom: 10px;
 }
 
-.maincontent {
+/* .maincontent {
   margin-left: 250px;
   transition: margin-left 0.3s ease-in-out;
   flex: auto;
   padding: 15px;
-}
+} */
 
 .sidenavClosed + .maincontent {
   margin-left: 50px;
@@ -57,3 +57,28 @@
 .menuItems2 {
   margin-top: 10px;
 }
+
+.items {
+  font-family: 'Open Sana', sans-serif;
+  z-index: 1000;
+  position: fixed;
+  top: 50px;
+  left: -100%;
+  display: flex;
+  height: 100%;
+  width: 60%;
+  border-left: #e94160;
+  border-top: #fabe00;
+  border-right: #00adb2;
+  border-bottom: #16a34a;
+  border-width: 3px;
+  overflow-x: hidden;
+  border-style: solid;
+  background-color: white;
+  transition: left 0.5s ease-in-out; 
+}
+
+.items.active {
+  left: 0;
+}
+

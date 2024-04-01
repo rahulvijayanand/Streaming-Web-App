@@ -23,7 +23,7 @@ const Filter = ({ categories, activeCategory, onCategoryClick }) => {
   }, []);
 
   return (
-    <div>
+    <div className="ml-3">
       {categories.map((category, index) => (
         <button
           key={index}

@@ -13,11 +13,11 @@ const Search = ({ onSearch }) => {
   };
 
   return (
-    <div className="search-container">
-      <button className="mic w-[40px] h-[40px] bg-[#d7cc99] justify-center mr-2">
+    <div className="ml-6 search-container">
+      <button className=" hidden sm:flex items-center mic w-[40px] h-[40px] bg-[#d7cc99] justify-center mr-2">
         <FiMic color={"#001523"} size={17} />
       </button>
-      <div className="search-bar bg-[#14293a] mr-9">
+      <div className="search-bar w-[120px] lg:w-[500px] bg-[#14293a] mr-9">
         <input
           type="text"
           placeholder="Search..."

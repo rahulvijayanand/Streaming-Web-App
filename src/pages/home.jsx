@@ -50,53 +50,58 @@ export default function Home({ searchQuery }) {
     activeFilter === "All"
       ? videos
       : videos.filter(
-          (video) => video.category.toLowerCase() === activeFilter.toLowerCase()
-        );
+        (video) => video.category.toLowerCase() === activeFilter.toLowerCase()
+      );
 
   const searchedVideos = filteredVideos.filter((video) =>
     video.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
-    <div>
-      <Filter
-        categories={categories.map((category) =>
-          category.toLowerCase() === "all"
-            ? category
-            : capitalizeFirstLetter(category)
-        )}
-        activeCategory={activeFilter}
-        onCategoryClick={handleFilterClick}
-      />
-      <div className="container mx-auto">
-        {loading ? (
-          <div className="flex justify-center items-center h-screen">
-            <BounceLoader
-              color="#ffffff"
-              loading={loading}
-              css={override}
-              size={50}
-            />
-          </div>
-        ) : searchedVideos.length === 0 ? (
-          <div className="text-white">No videos available</div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4">
-            {searchedVideos.map((video, index) => (
-              <Video
-                key={index}
-                thumbnail={video.thumbnail}
-                duration={video.duration}
-                title={video.title}
-                channelLogo={video.channelPicture}
-                channelName={video.channelName}
-                views={video.views}
-                uploadedAt={video.uploadedDateTime}
-                category={video.category}
+    <div className="">
+      {/* <div>
+        <Sidenav />
+      </div> */}
+      <div>
+        <Filter
+          categories={categories.map((category) =>
+            category.toLowerCase() === "all"
+              ? category
+              : capitalizeFirstLetter(category)
+          )}
+          activeCategory={activeFilter}
+          onCategoryClick={handleFilterClick}
+        />
+        <div className="container mx-auto">
+          {loading ? (
+            <div className="flex justify-center items-center h-screen">
+              <BounceLoader
+                color="#ffffff"
+                loading={loading}
+                css={override}
+                size={50}
               />
-            ))}
-          </div>
-        )}
+            </div>
+          ) : searchedVideos.length === 0 ? (
+            <div className="text-white">No videos available</div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4">
+              {searchedVideos.map((video, index) => (
+                <Video
+                  key={index}
+                  thumbnail={video.thumbnail}
+                  duration={video.duration}
+                  title={video.title}
+                  channelLogo={video.channelPicture}
+                  channelName={video.channelName}
+                  views={video.views}
+                  uploadedAt={video.uploadedDateTime}
+                  category={video.category}
+                />
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
